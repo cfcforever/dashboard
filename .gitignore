@@ -4,6 +4,12 @@
 .Ruserdata
 .Rapp.history
 .DS_Store
+
+.Rprofile
+.gitattributes
+_workflowr.yml
+dashboard.Rproj
+
 analysis/figure
 analysis/*png
 analysis/*html
