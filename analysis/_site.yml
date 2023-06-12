@@ -5,6 +5,8 @@ navbar:
   left:
   - text: Home
     href: index.html
+  - text: Historical data
+    href: historical.html
   - text: About
     href: about.html
   - text: License
