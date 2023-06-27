@@ -10,6 +10,8 @@
 _workflowr.yml
 dashboard.Rproj
 
+analysis/style.css
+
 analysis/figure
 analysis/*png
 analysis/*html
