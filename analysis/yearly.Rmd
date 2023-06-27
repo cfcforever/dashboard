@@ -51,6 +51,7 @@ p <- create_line_plot(facility_choices[2])
 p
 ```
 
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # 创建初始折线图
 p <- create_line_plot(facility_choices[3])
