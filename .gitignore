@@ -21,3 +21,5 @@ analysis/site_libs
 workflowr.R
 
 data/*py
+
+data
