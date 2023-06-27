@@ -8,7 +8,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r echo=FALSE, fig.height=6, fig.width=9, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(plotly)
 library(ggplot2)
 
@@ -45,13 +45,13 @@ p
 ```
 
 
-```{r echo=FALSE, fig.height=6, fig.width=9, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 # 创建初始折线图
 p <- create_line_plot(facility_choices[2])
 p
 ```
 
-```{r echo=FALSE, fig.height=6, fig.width=9, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 # 创建初始折线图
 p <- create_line_plot(facility_choices[3])
 p
