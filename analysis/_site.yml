@@ -5,6 +5,7 @@ navbar:
   search: true
   left:
   - text: Home
+    icon: fa-home
     href: index.html
   - text: Historical data
     href: historical.html
