@@ -8,11 +8,18 @@ navbar:
     href: index.html
   - text: Historical data
     href: historical.html
+    menu:
+      - text: daily
+        href: daily.html
+      - text: monthly
+        href: monthly.html
+      - text: yearly
+        href: yearly.html
   right:
   - text: About
     href: about.html
   - text: License
-    href: license.html  
+    href: license.html
   - icon: fab fa-github
     text: Source code
     href: https://github.com/cfcforever/dashboard
