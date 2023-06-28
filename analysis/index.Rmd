@@ -57,45 +57,164 @@ p
 ```
 
 
+```{r}
+time_save = read.csv("data/time_save_2014_2022.csv")
+time_save <- time_save %>%
+  mutate(Year = year(date), Month = month(date), Day = day(date))
+
+# select the data of 2022-12
+time_save_filtered <- time_save %>%
+  filter(Year == 2022, Month == 12, Day == 31)
+
+time_save_filtered = melt(time_save_filtered, measure.vars = c("chambre", "consultation", "bureau"))
+time_save_filtered = time_save_filtered %>%
+  rename(facility = variable) %>%
+  rename(h = value)
+```
+
+
 # 2022-12-31 {.tabset .tabset-pills}
 ## chambre
+```{r}
+df = time_save_filtered %>% 
+    filter(facility == "chambre")
+df <- df %>%
+  mutate(h_cum = cumsum(h))
+
+df$euro = 20/24*0.2*df$h
+df <- df %>%
+  mutate(euro_cum = cumsum(euro))
+```
+
+```{r}
+p <- ggplot(df, aes(x = hour, y = h)) + 
+  geom_bar(stat = "identity", position = "dodge", fill = "red") +
+  scale_x_continuous(breaks = 0:23) + 
+  labs(x = "Hour", y = "Saving hours") +
+  theme_minimal()
+p <- ggplotly(p)
+p 
+```
+
+
+```{r}
+p <- ggplot(df, aes(x = hour, y = euro_cum)) + 
+  geom_line(size = 1, col = "red") +
+  scale_x_continuous(breaks = 0:23) + 
+  labs(x = "Hour", y = "Saving Euros (€)") +
+  theme_minimal()
+p <- ggplotly(p)
+p 
+```
+
+
 ```{r}
 temp = data_filtered %>% 
     filter(facility == "chambre")
 
 p <- ggplot(temp, aes(x = hour, y = electricity)) +
   geom_bar(stat = "identity", position = "dodge", fill = "red") +
+  scale_x_continuous(breaks = 0:23) + 
   labs(x = "Hour", y = "Electricity (kWh)", title = "") +
   theme_minimal()
 p <- ggplotly(p)
-
-p  
+p 
 ```
 
+
 ## consultation
+```{r}
+df = time_save_filtered %>% 
+    filter(facility == "consultation")
+df <- df %>%
+  mutate(h_cum = cumsum(h))
+
+df$euro = 20/24*0.2*df$h
+df <- df %>%
+  mutate(euro_cum = cumsum(euro))
+```
+
+```{r}
+p <- ggplot(df, aes(x = hour, y = h)) + 
+  geom_bar(stat = "identity", position = "dodge", fill = "green") +
+  scale_x_continuous(breaks = 0:23) + 
+  labs(x = "Hour", y = "Saving hours") +
+  theme_minimal()
+p <- ggplotly(p)
+p 
+```
+
+
+```{r}
+p <- ggplot(df, aes(x = hour, y = euro_cum)) + 
+  geom_line(size = 1, col = "green") +
+  scale_x_continuous(breaks = 0:23) + 
+  labs(x = "Hour", y = "Saving Euros (€)") +
+  theme_minimal()
+p <- ggplotly(p)
+p 
+```
+
+
 ```{r}
 temp = data_filtered %>% 
     filter(facility == "consultation")
 
 p <- ggplot(temp, aes(x = hour, y = electricity)) +
   geom_bar(stat = "identity", position = "dodge", fill = "green") +
+  scale_x_continuous(breaks = 0:23) + 
   labs(x = "Hour", y = "Electricity (kWh)", title = "") +
   theme_minimal()
 p <- ggplotly(p)
-
-p  
+p 
 ```
 
+
 ## bureau
+```{r}
+df = time_save_filtered %>% 
+    filter(facility == "bureau")
+df <- df %>%
+  mutate(h_cum = cumsum(h))
+
+df$euro = 20/24*0.2*df$h
+df <- df %>%
+  mutate(euro_cum = cumsum(euro))
+```
+
+```{r}
+p <- ggplot(df, aes(x = hour, y = h)) + 
+  geom_bar(stat = "identity", position = "dodge", fill = "blue") +
+  scale_x_continuous(breaks = 0:23) + 
+  labs(x = "Hour", y = "Saving hours") +
+  theme_minimal()
+p <- ggplotly(p)
+p 
+```
+
+
+```{r}
+p <- ggplot(df, aes(x = hour, y = euro_cum)) + 
+  geom_line(size = 1, col = "blue") +
+  scale_x_continuous(breaks = 0:23) + 
+  labs(x = "Hour", y = "Saving Euros (€)") +
+  theme_minimal()
+p <- ggplotly(p)
+p 
+```
+
+
 ```{r}
 temp = data_filtered %>% 
     filter(facility == "bureau")
 
 p <- ggplot(temp, aes(x = hour, y = electricity)) +
   geom_bar(stat = "identity", position = "dodge", fill = "blue") +
+  scale_x_continuous(breaks = 0:23) + 
   labs(x = "Hour", y = "Electricity (kWh)", title = "") +
   theme_minimal()
 p <- ggplotly(p)
-
-p  
+p 
 ```
+
+
