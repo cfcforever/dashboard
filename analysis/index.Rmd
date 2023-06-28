@@ -55,7 +55,7 @@ p
 ```
 
 
-# Results {.tabset .tabset-pills}
+# 2022-12-31 {.tabset .tabset-pills}
 ## chambre
 ```{r}
 temp = data_filtered %>% 
@@ -63,7 +63,7 @@ temp = data_filtered %>%
 
 p <- ggplot(temp, aes(x = hour, y = electricity)) +
   geom_bar(stat = "identity", position = "dodge", fill = "red") +
-  labs(x = "Hour", y = "Electricity (kWh)", title = "2022-12-31") +
+  labs(x = "Hour", y = "Electricity (kWh)", title = "") +
   theme_minimal()
 p <- ggplotly(p)
 
@@ -77,7 +77,7 @@ temp = data_filtered %>%
 
 p <- ggplot(temp, aes(x = hour, y = electricity)) +
   geom_bar(stat = "identity", position = "dodge", fill = "green") +
-  labs(x = "Hour", y = "Electricity (kWh)", title = "2022-12-31") +
+  labs(x = "Hour", y = "Electricity (kWh)", title = "") +
   theme_minimal()
 p <- ggplotly(p)
 
@@ -91,7 +91,7 @@ temp = data_filtered %>%
 
 p <- ggplot(temp, aes(x = hour, y = electricity)) +
   geom_bar(stat = "identity", position = "dodge", fill = "blue") +
-  labs(x = "Hour", y = "Electricity (kWh)", title = "2022-12-31") +
+  labs(x = "Hour", y = "Electricity (kWh)", title = "") +
   theme_minimal()
 p <- ggplotly(p)
 
