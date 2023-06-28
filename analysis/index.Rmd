@@ -9,7 +9,8 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE,
+                      fig.width = 10, fig.height = 4)
 ``` 
 
 ```{r}
@@ -21,13 +22,13 @@ library(plotly)
 ```
 
 ```{r}
-# 读取数据
+# load data
 data <- read.csv("data/electricity_2014_2022.csv")
 
 data <- data %>%
   mutate(Year = year(date), Month = month(date), Day = day(date))
 
-# 筛选2022年12月31日的数据
+# select the data of 2022-12
 data_filtered <- data %>%
   filter(Year == 2022, Month == 12, Day == 31)
 
@@ -35,27 +36,64 @@ data_filtered = melt(data_filtered, measure.vars = c("chambre", "consultation", 
 data_filtered = data_filtered %>%
   rename(facility = variable) %>%
   rename(electricity = value)
-  
+```
 
-# 使用ggplot2创建柱状图
+
+```{r eval=FALSE, fig.height=9, fig.width=9, include=FALSE}
+# ggplot2 for histogram
 p <- ggplot(data_filtered, aes(x = hour, y = electricity, fill = facility)) +
   geom_bar(stat = "identity", position = "dodge") +
   facet_wrap(~facility, ncol = 1) +
   labs(x = "Hour", y = "Electricity (kWh)", title = "2022-12-31") +
   theme_minimal()
-```
 
-
-```{r, fig.width=9, fig.height=9}
-# 使用plotly使图表具有交互性
+# using plotly
 p <- ggplotly(p)
 
-# 打印交互图表
+# plot
 p
 ```
 
 
+# Results {.tabset .tabset-pills}
+## chambre
+```{r}
+temp = data_filtered %>% 
+    filter(facility == "chambre")
 
+p <- ggplot(temp, aes(x = hour, y = electricity)) +
+  geom_bar(stat = "identity", position = "dodge", fill = "red") +
+  labs(x = "Hour", y = "Electricity (kWh)", title = "2022-12-31") +
+  theme_minimal()
+p <- ggplotly(p)
 
+p  
+```
 
+## consultation
+```{r}
+temp = data_filtered %>% 
+    filter(facility == "consultation")
 
+p <- ggplot(temp, aes(x = hour, y = electricity)) +
+  geom_bar(stat = "identity", position = "dodge", fill = "green") +
+  labs(x = "Hour", y = "Electricity (kWh)", title = "2022-12-31") +
+  theme_minimal()
+p <- ggplotly(p)
+
+p  
+```
+
+## bureau
+```{r}
+temp = data_filtered %>% 
+    filter(facility == "bureau")
+
+p <- ggplot(temp, aes(x = hour, y = electricity)) +
+  geom_bar(stat = "identity", position = "dodge", fill = "blue") +
+  labs(x = "Hour", y = "Electricity (kWh)", title = "2022-12-31") +
+  theme_minimal()
+p <- ggplotly(p)
+
+p  
+```
