@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "Today's Electricity Consumption"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
@@ -8,4 +8,54 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE)
+``` 
+
+```{r}
+library(lubridate)
+library(reshape2)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+```
+
+```{r}
+# 读取数据
+data <- read.csv("data/electricity_2014_2022.csv")
+
+data <- data %>%
+  mutate(Year = year(date), Month = month(date), Day = day(date))
+
+# 筛选2022年12月31日的数据
+data_filtered <- data %>%
+  filter(Year == 2022, Month == 12, Day == 31)
+
+data_filtered = melt(data_filtered, measure.vars = c("chambre", "consultation", "bureau"))
+data_filtered = data_filtered %>%
+  rename(facility = variable) %>%
+  rename(electricity = value)
+  
+
+# 使用ggplot2创建柱状图
+p <- ggplot(data_filtered, aes(x = hour, y = electricity, fill = facility)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  facet_wrap(~facility, ncol = 1) +
+  labs(x = "Hour", y = "Electricity (kWh)", title = "2022-12-31") +
+  theme_minimal()
+```
+
+
+```{r, fig.width=9, fig.height=9}
+# 使用plotly使图表具有交互性
+p <- ggplotly(p)
+
+# 打印交互图表
+p
+```
+
+
+
+
+
+
