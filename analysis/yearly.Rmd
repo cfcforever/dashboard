@@ -12,7 +12,7 @@ editor_options:
 library(plotly)
 library(ggplot2)
 
-data = read.csv("data/yearly_data.csv")
+data = read.csv("code/yearly_data.csv")
 
 # 创建折线图函数
 create_line_plot <- function(facility) {

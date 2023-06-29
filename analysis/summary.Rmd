@@ -1,0 +1,11 @@
+---
+title: "Electricity Saving Summary"
+site: workflowr::wflow_site
+output:
+  workflowr::wflow_html:
+    toc: false
+editor_options:
+  chunk_output_type: console
+---
+
+knitr::include_app("https://cfcforever.shinyapps.io/electricity/")
