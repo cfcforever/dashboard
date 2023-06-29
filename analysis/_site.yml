@@ -8,10 +8,10 @@ navbar:
     icon: fa-home
     href: index.html
   - text: Daily report
-    icon: albums-outline
+    icon: fa-rss
     href: daily.html
   - text: Electricity Saving Summary
-    icon: logo-euro
+    icon: fa-euro-sign
     href: summary.html
   right:
   - text: About
