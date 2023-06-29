@@ -23,6 +23,7 @@ library(plotly)
 ``` 
 
 
+You can also check [here](https://cfcforever.shinyapps.io/electricity/).
 ```{r}
 knitr::include_app("https://cfcforever.shinyapps.io/electricity/")
 ```

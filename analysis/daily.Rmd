@@ -22,6 +22,8 @@ library(ggplot2)
 library(plotly)
 ``` 
 
+
+You can also check [here](https://cfcforever.shinyapps.io/daily/).
 ```{r shiny-app}
 knitr::include_app("https://cfcforever.shinyapps.io/daily/")
 ```
