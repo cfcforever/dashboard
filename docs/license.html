@@ -13,7 +13,7 @@
 
 <title>License</title>
 
-<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.22/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -32,8 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -269,13 +269,10 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="daily.html">daily</a>
+      <a href="daily.html">Daily report</a>
     </li>
     <li>
-      <a href="monthly.html">monthly</a>
-    </li>
-    <li>
-      <a href="yearly.html">yearly</a>
+      <a href="summary.html">Electricity Saving Summary</a>
     </li>
   </ul>
 </li>
@@ -332,7 +329,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2023-06-27
+<strong>Last updated:</strong> 2023-06-29
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -379,15 +376,15 @@ results.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomcfcforeverdashboardtreed545c12f0e8db05401a4b693c6566a7668d66e76targetblankd545c12a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomcfcforeverdashboardtree96e5894daa797869d0d38d1def1fd9e031cf2992targetblank96e5894a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/cfcforever/dashboard/tree/d545c12f0e8db05401a4b693c6566a7668d66e76" target="_blank">d545c12</a>
+<a href="https://github.com/cfcforever/dashboard/tree/96e5894daa797869d0d38d1def1fd9e031cf2992" target="_blank">96e5894</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomcfcforeverdashboardtreed545c12f0e8db05401a4b693c6566a7668d66e76targetblankd545c12a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomcfcforeverdashboardtree96e5894daa797869d0d38d1def1fd9e031cf2992targetblank96e5894a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -397,7 +394,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/cfcforever/dashboard/tree/d545c12f0e8db05401a4b693c6566a7668d66e76" target="_blank">d545c12</a>.
+<a href="https://github.com/cfcforever/dashboard/tree/96e5894daa797869d0d38d1def1fd9e031cf2992" target="_blank">96e5894</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -420,13 +417,17 @@ Ignored files:
     Ignored:    _workflowr.yml
     Ignored:    analysis/style.css
     Ignored:    dashboard.Rproj
+    Ignored:    data/.DS_Store
     Ignored:    workflowr.R
 
 Untracked files:
-    Untracked:  analysis/app.R
+    Untracked:  daily/
+    Untracked:  data/euro_saving_2004_2022.csv
+    Untracked:  electricity/
 
 Unstaged changes:
-    Modified:   .gitignore
+    Modified:   analysis/_site.yml
+    Deleted:    analysis/monthly.Rmd
 
 </code></pre>
 <p>
@@ -472,6 +473,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/cfcforever/dashboard/264895f1e88ff95546390c4b399c72c2a8f6b698/docs/license.html" target="_blank">264895f</a>
+</td>
+<td>
+cfcforever
+</td>
+<td>
+2023-06-27
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
