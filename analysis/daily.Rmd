@@ -23,5 +23,5 @@ library(plotly)
 ``` 
 
 ```{r shiny-app}
-knitr::include_app("https://cfcforever.shinyapps.io/SCdemo/")
+knitr::include_app("https://cfcforever.shinyapps.io/daily/")
 ```
