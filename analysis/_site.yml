@@ -7,15 +7,12 @@ navbar:
   - text: Home
     icon: fa-home
     href: index.html
-  - text: Historical data
-    href: historical.html
-    menu:
-      - text: daily
-        href: daily.html
-      - text: monthly
-        href: monthly.html
-      - text: yearly
-        href: yearly.html
+  - text: Daily report
+    icon: albums-outline
+    href: daily.html
+  - text: Electricity Saving Summary
+    icon: logo-euro
+    href: summary.html
   right:
   - text: About
     href: about.html
