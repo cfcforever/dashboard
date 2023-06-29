@@ -1,11 +1,30 @@
 ---
 title: "Electricity Saving Summary"
 site: workflowr::wflow_site
+runtime: shiny
 output:
   workflowr::wflow_html:
     toc: false
 editor_options:
   chunk_output_type: console
+workflowr:
+  suppress_report: TRUE
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE,
+                      fig.width = 10, fig.height = 4)
+library(shiny)
+library(lubridate)
+library(reshape2)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+``` 
+
+
+```{r}
 knitr::include_app("https://cfcforever.shinyapps.io/electricity/")
+```
+
+
